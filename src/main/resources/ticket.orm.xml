@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "com.andersen.hibernate.Models.Ticket" table = "ticket">
+        <id name = "id" type = "int" column = "id">
+            <generator class="increment">
+                <param name="sequence">ticket_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="traveller" column="traveller_id"
+                     class="com.andersen.hibernate.Models.Traveller" />
+        <many-to-one name="route" column="route_id"
+                     class="com.andersen.hibernate.Models.Route" />
+        <property name = "price" column = "price" type = "int"/>
+    </class>
+</hibernate-mapping>

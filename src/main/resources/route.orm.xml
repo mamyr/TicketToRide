@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "com.andersen.hibernate.Models.Route" table = "route">
+        <id name = "id" type = "int" column = "id">
+            <generator class="increment">
+                <param name="sequence">route_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="cityA" column="cityA"
+                     class="com.andersen.hibernate.Models.City" />
+        <many-to-one name="cityB" column="cityB"
+                     class="com.andersen.hibernate.Models.City" />
+        <property name = "segmentList" column = "segments" type = "string"/>
+        <property name = "boundryAmount" column = "boundry_amount" type = "int"/>
+        <property name = "price" column = "price" type = "int"/>
+        <property name = "description" column = "description" type = "string"/>
+        <property name = "currency" column = "currency" type = "string"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "com.andersen.hibernate.Models.Segment" table = "segment">
+        <id name = "id" type = "int" column = "id">
+            <generator class="increment">
+                <param name="sequence">segment_id_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="city1" column="city1"
+                     class="com.andersen.hibernate.Models.City" />
+        <many-to-one name="city2" column="city2"
+                     class="com.andersen.hibernate.Models.City" />
+        <property name = "boundryAmount" column = "boundry_amount" type = "int"/>
+        <property name = "segmentPrice" column = "segment_price" type = "int"/>
+    </class>
+</hibernate-mapping>
